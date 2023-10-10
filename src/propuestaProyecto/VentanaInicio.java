@@ -259,8 +259,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_opEmpleadoMouseClicked
 
     private void opVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opVentasMouseClicked
-        Ventas p2= new Ventas();
-        cambioPanel(p2);
+
     }//GEN-LAST:event_opVentasMouseClicked
 
     /**
