@@ -40,6 +40,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         opVentas = new javax.swing.JLabel();
         bg_opEmpleado = new javax.swing.JPanel();
         opEmpleado = new javax.swing.JLabel();
+        bg_opCliente = new javax.swing.JPanel();
+        opCliente = new javax.swing.JLabel();
         contenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,6 +149,38 @@ public class VentanaInicio extends javax.swing.JFrame {
             .addComponent(opEmpleado)
         );
 
+        bg_opCliente.setBackground(new java.awt.Color(0, 121, 235));
+
+        opCliente.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        opCliente.setForeground(new java.awt.Color(255, 255, 255));
+        opCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo usuario.png"))); // NOI18N
+        opCliente.setText("GENERAR CLIENTE");
+        opCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        opCliente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        opCliente.setIconTextGap(8);
+        opCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opClienteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                opClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                opClienteMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bg_opClienteLayout = new javax.swing.GroupLayout(bg_opCliente);
+        bg_opCliente.setLayout(bg_opClienteLayout);
+        bg_opClienteLayout.setHorizontalGroup(
+            bg_opClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(opCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        bg_opClienteLayout.setVerticalGroup(
+            bg_opClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(opCliente)
+        );
+
         javax.swing.GroupLayout bgMenuLayout = new javax.swing.GroupLayout(bgMenu);
         bgMenu.setLayout(bgMenuLayout);
         bgMenuLayout.setHorizontalGroup(
@@ -158,6 +192,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             .addComponent(bg_opAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(bg_opVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(bg_opEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg_opCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         bgMenuLayout.setVerticalGroup(
             bgMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +205,9 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(bg_opVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(bg_opEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(bg_opCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         bg.add(bgMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 780));
@@ -259,8 +296,22 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_opEmpleadoMouseClicked
 
     private void opVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opVentasMouseClicked
-
+        Ventas p2 = new Ventas();
+        cambioPanel(p2);
     }//GEN-LAST:event_opVentasMouseClicked
+
+    private void opClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opClienteMouseClicked
+        Cliente p3 = new Cliente();
+        cambioPanel(p3);
+    }//GEN-LAST:event_opClienteMouseClicked
+
+    private void opClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opClienteMouseEntered
+        resaltar(bg_opCliente);
+    }//GEN-LAST:event_opClienteMouseEntered
+
+    private void opClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opClienteMouseExited
+        normal(bg_opCliente);
+    }//GEN-LAST:event_opClienteMouseExited
 
     /**
      * @param args the command line arguments
@@ -301,11 +352,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JPanel bgMenu;
     private javax.swing.JPanel bg_opAlmacen;
+    private javax.swing.JPanel bg_opCliente;
     private javax.swing.JPanel bg_opEmpleado;
     private javax.swing.JPanel bg_opVentas;
     private javax.swing.JPanel contenedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel opAlmacen;
+    private javax.swing.JLabel opCliente;
     private javax.swing.JLabel opEmpleado;
     private javax.swing.JLabel opVentas;
     // End of variables declaration//GEN-END:variables
