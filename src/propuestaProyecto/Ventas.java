@@ -8,7 +8,10 @@ package propuestaProyecto;
 import COMBOs.COMBOEmpleado;
 import POJOs.Empleado;
 import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -16,6 +19,7 @@ import java.util.ArrayList;
  */
 public class Ventas extends javax.swing.JPanel {
     private Integer idEmpelado;
+    private BigDecimal precio;
 
     /**
      * Creates new form Ventas
@@ -23,6 +27,7 @@ public class Ventas extends javax.swing.JPanel {
     public Ventas() {
         initComponents();
     }
+    
     public void cargarComboEmpleado(){
         Integer id;
         String empleado;
@@ -124,6 +129,11 @@ public class Ventas extends javax.swing.JPanel {
         txt_nombreProducto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         txt_nombreProducto.setForeground(new java.awt.Color(0, 0, 0));
         txt_nombreProducto.setBorder(null);
+        txt_nombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_nombreProductoKeyPressed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -132,6 +142,11 @@ public class Ventas extends javax.swing.JPanel {
         txt_cantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_cantidad.setBorder(null);
+        txt_cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_cantidadKeyPressed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -160,7 +175,12 @@ public class Ventas extends javax.swing.JPanel {
         txt_total.setBorder(null);
         txt_total.setEnabled(false);
 
-        op_cerrarEncabezado.setText("CERRAR ENCABEZADO");
+        op_cerrarEncabezado.setText("CERRAR VENTA");
+        op_cerrarEncabezado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                op_cerrarEncabezadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -216,7 +236,7 @@ public class Ventas extends javax.swing.JPanel {
                         .addGap(33, 33, 33)
                         .addComponent(comboEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(350, 350, 350)
+                        .addGap(357, 357, 357)
                         .addComponent(op_cerrarEncabezado)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -244,9 +264,7 @@ public class Ventas extends javax.swing.JPanel {
                             .addComponent(txt_nit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(op_cerrarEncabezado)
-                .addGap(22, 22, 22)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_nombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,24 +277,26 @@ public class Ventas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(txt_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(op_cerrarEncabezado)
+                .addGap(350, 350, 350))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -308,6 +328,46 @@ public class Ventas extends javax.swing.JPanel {
              op_cerrarEncabezado.requestFocus();
          }
     }//GEN-LAST:event_comboEmpleadoKeyPressed
+
+    private void op_cerrarEncabezadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_op_cerrarEncabezadoActionPerformed
+        
+    }//GEN-LAST:event_op_cerrarEncabezadoActionPerformed
+
+    private void txt_nombreProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreProductoKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+             Integer cantidad,existencia,idProducto;
+             String producto;
+             
+             producto=txt_nombreProducto.getText();
+             
+             idProducto=CRUDs.CRUDProducto.select(producto).getIdProducto();
+             precio=CRUDs.CRUDProducto.select(producto).getPrecioProducto();
+             existencia=CRUDs.CRUDProducto.select(producto).getExistecnia();
+             
+             txt_precio.setText(precio+"");
+             txt_stock.setText(existencia+"");
+             
+             txt_cantidad.requestFocus();
+         }
+    }//GEN-LAST:event_txt_nombreProductoKeyPressed
+
+    private void txt_cantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cantidadKeyPressed
+       
+       if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+       BigDecimal cant,tot;
+        
+       Integer cantidad;
+       String cantidadT;
+       
+       cantidadT=txt_cantidad.getText();
+       cantidad=Integer.parseInt(cantidadT);
+       cant=new BigDecimal(cantidad);
+       tot=cant.multiply(precio);
+       txt_total.setText(tot+"");
+        }
+       
+       
+    }//GEN-LAST:event_txt_cantidadKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -351,5 +411,19 @@ public class Ventas extends javax.swing.JPanel {
      */
     public void setIdEmpelado(Integer idEmpelado) {
         this.idEmpelado = idEmpelado;
+    }
+
+    /**
+     * @return the precio
+     */
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
     }
 }

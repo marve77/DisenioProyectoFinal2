@@ -85,7 +85,7 @@
                       <Component id="comboEmpleado" min="-2" pref="185" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="357" max="-2" attributes="0"/>
                       <Component id="op_cerrarEncabezado" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -124,9 +124,7 @@
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="op_cerrarEncabezado" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txt_nombreProducto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
@@ -141,27 +139,29 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_precio" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="txt_precio" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_stock" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="txt_stock" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_total" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="txt_total" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator8" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace pref="426" max="32767" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <Component id="op_cerrarEncabezado" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -285,6 +285,9 @@
           <Border info="null"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nombreProductoKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator4">
     </Component>
@@ -311,6 +314,9 @@
           <Border info="null"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_cantidadKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator5">
     </Component>
@@ -397,8 +403,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="op_cerrarEncabezado">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CERRAR ENCABEZADO"/>
+        <Property name="text" type="java.lang.String" value="CERRAR VENTA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="op_cerrarEncabezadoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
