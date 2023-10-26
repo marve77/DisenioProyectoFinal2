@@ -244,23 +244,25 @@ public class VentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //Funcion para resaltar el boton para feedback a usuario
-    private void resaltar(JPanel p){
-        p.setBackground(new Color(0,180,235));
+    private void resaltar(JPanel p) {
+        p.setBackground(new Color(0, 180, 235));
     }
+
     //Funcion para volver a la normalidad el color del boton
-    private void normal(JPanel p){
-        p.setBackground(new Color(0,121,235));
+    private void normal(JPanel p) {
+        p.setBackground(new Color(0, 121, 235));
     }
+
     // metodo para llamar a los paneles 
-    private void cambioPanel(JPanel p){
+    private void cambioPanel(JPanel p) {
         p.setSize(880, 780);
         p.setLocation(0, 0);
-        
+
         contenedor.removeAll();
         contenedor.add(p, BorderLayout.CENTER);
         contenedor.revalidate();
         contenedor.repaint();
-        
+
     }
     private void opAlmacenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opAlmacenMouseEntered
         resaltar(bg_opAlmacen);
@@ -287,12 +289,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_opEmpleadoMouseExited
 
     private void opAlmacenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opAlmacenMouseClicked
-        Inventario p1= new Inventario();
+        Inventario p1 = new Inventario();
         cambioPanel(p1);
     }//GEN-LAST:event_opAlmacenMouseClicked
 
     private void opEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opEmpleadoMouseClicked
-
+        Empleado p3 = new Empleado();
+        cambioPanel(p3);
     }//GEN-LAST:event_opEmpleadoMouseClicked
 
     private void opVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opVentasMouseClicked
@@ -301,8 +304,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_opVentasMouseClicked
 
     private void opClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opClienteMouseClicked
-        Cliente p3 = new Cliente();
-        cambioPanel(p3);
+        Cliente p4 = new Cliente();
+        cambioPanel(p4);
     }//GEN-LAST:event_opClienteMouseClicked
 
     private void opClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opClienteMouseEntered

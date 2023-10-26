@@ -409,19 +409,19 @@ public class Cliente extends javax.swing.JPanel {
     }//GEN-LAST:event_op_actualizarActionPerformed
 
     private void tablaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClienteMouseClicked
-               try {
+        try {
             int fsel;
-            fsel=tablaCliente.getSelectedRow();
-            if(fsel==-1){
+            fsel = tablaCliente.getSelectedRow();
+            if (fsel == -1) {
                 JOptionPane.showMessageDialog(null, "NO se puede seleccionar");
-               }else{
-                int row=tablaCliente.getSelectedRow();
-                String nombreCliente,apellidoCliente,nitCliente,telefonoCliente;
+            } else {
+                int row = tablaCliente.getSelectedRow();
+                String nombreCliente, apellidoCliente, nitCliente, telefonoCliente;
                 setIdCliente(Integer.parseInt(tablaCliente.getValueAt(row, 0).toString()));
-                nombreCliente=tablaCliente.getValueAt(row,1).toString();
-                apellidoCliente=tablaCliente.getValueAt(row,2).toString();
-                nitCliente=tablaCliente.getValueAt(row,3).toString();
-                telefonoCliente=tablaCliente.getValueAt(row,4).toString();
+                nombreCliente = tablaCliente.getValueAt(row, 1).toString();
+                apellidoCliente = tablaCliente.getValueAt(row, 2).toString();
+                nitCliente = tablaCliente.getValueAt(row, 3).toString();
+                telefonoCliente = tablaCliente.getValueAt(row, 4).toString();
                 txt_nombreCliente.setText(nombreCliente);
                 txt_nombreCliente.setForeground(Color.black);
                 txt_apellidoCliente.setText(apellidoCliente);
@@ -431,9 +431,9 @@ public class Cliente extends javax.swing.JPanel {
                 txt_telefonoCliente.setText(telefonoCliente);
                 txt_telefonoCliente.setForeground(Color.black);
             }
-            
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error"+e);
+            JOptionPane.showMessageDialog(null, "Error" + e);
         }
     }//GEN-LAST:event_tablaClienteMouseClicked
 
